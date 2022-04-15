@@ -1,0 +1,95 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="arduino_functions" id="FCb;2XM//:zPSeo`@^tp" x="370" y="70">
+    <statement name="SETUP_FUNC">
+      <block type="wx_init_ble" id="J1w-Fr;y-BtQT5W?nmA9">
+        <field name="TYPE">wx_init_ble_transceiver</field>
+        <field name="ID">10</field>
+        <next>
+          <block type="wx_rtc_init_current" id="pd|rw:XbK~=O#N@6pv7t">
+            <next>
+              <block type="wx_oled_power" id="7]XjO)g_o1WIXnd/=yv.">
+                <value name="STATE">
+                  <block type="io_highlow" id="3PNQ6zi*8NWmQgx@l[{%">
+                    <field name="STATE">HIGH</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="LOOP_FUNC">
+      <block type="wx_write_text_line" id="uW,B}n:j%!it*oV}q1K/">
+        <field name="LINE">0</field>
+        <field name="ALIGN">1</field>
+        <value name="CONTENT">
+          <block type="text" id="cM.4X:Y?!DlzGmGb7|ib">
+            <field name="TEXT">Notifications (1)</field>
+          </block>
+        </value>
+        <next>
+          <block type="wx_write_text_line" id="!vN^u}#(W*U=,Ej8E@Wc">
+            <field name="LINE">2</field>
+            <field name="ALIGN">1</field>
+            <value name="CONTENT">
+              <block type="wx_ble_read_text" id="*yn9w:y2*[.d|4J={YE}"></block>
+            </value>
+            <next>
+              <block type="controls_if" id="_CC1pB7G_D)A^C}W1YvH">
+                <value name="IF0">
+                  <block type="logic_compare" id="%].b#[q}`QFMiGBp}PsY">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="wx_ble_read_text" id="^OiX:lpB/a25u]:*VL{%"></block>
+                    </value>
+                    <value name="B">
+                      <block type="text" id="U;#IR#a6;jbp=UEgP2B9">
+                        <field name="TEXT">On</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="wx_oled_power" id="(XR4_3:WGRVY#QH-tOgB">
+                    <value name="STATE">
+                      <block type="io_highlow" id="Ckp@Au8,/rG?dmig{XNl">
+                        <field name="STATE">HIGH</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_if" id="F-yGu2ZAV:/Ta,:ppsKW">
+                    <value name="IF0">
+                      <block type="logic_compare" id="2=FG4^IM)*h2[*1.c|y3">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="wx_ble_read_text" id="#BAK-]wDPj/yN|:Cw]f8"></block>
+                        </value>
+                        <value name="B">
+                          <block type="text" id="pQLvAvF3~G)^,7+snTEo">
+                            <field name="TEXT">Off</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="wx_oled_power" id="XHA4#4xX.GFJNA~q)6Hn">
+                        <value name="STATE">
+                          <block type="io_highlow" id="9MR0J~*O)~4Z38|BoW76">
+                            <field name="STATE">LOW</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
