@@ -1,0 +1,412 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="arduino_functions" id="FCb;2XM//:zPSeo`@^tp" x="30" y="110">
+    <statement name="SETUP_FUNC">
+      <block type="wx_init_ble" id="J1w-Fr;y-BtQT5W?nmA9">
+        <field name="TYPE">wx_init_ble_transceiver</field>
+        <field name="ID">10</field>
+        <next>
+          <block type="wx_rtc_init_current" id="pd|rw:XbK~=O#N@6pv7t">
+            <next>
+              <block type="wx_oled_power" id="7]XjO)g_o1WIXnd/=yv.">
+                <value name="STATE">
+                  <block type="io_highlow" id="3PNQ6zi*8NWmQgx@l[{%">
+                    <field name="STATE">HIGH</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="wx_brightness" id="+%9b/r{5(H-zAv))uZV[">
+                    <value name="STATE">
+                      <block type="io_highlow" id="yp%bg3Rbj[PA;)],1|48">
+                        <field name="STATE">HIGH</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="wx_print_time_line" id="CggKZ4%9n3@4nu_vAO+k">
+                        <field name="LINE">1</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="LOOP_FUNC">
+      <block type="wx_write_text_line" id="8!`_r4MA`kNi~Bt6;sYs">
+        <field name="LINE">0</field>
+        <field name="ALIGN">1</field>
+        <value name="CONTENT">
+          <block type="text" id="BHFc?t2IT)7EK:`@G|T:">
+            <field name="TEXT">Cody's watchX</field>
+          </block>
+        </value>
+        <next>
+          <block type="wx_write_text_line" id="(]miU{XJfVYcJPIkUvoA">
+            <field name="LINE">1</field>
+            <field name="ALIGN">1</field>
+            <value name="CONTENT">
+              <block type="text_join" id="6)Wdj5^RgoqgJjST)rE^">
+                <mutation items="5"></mutation>
+                <value name="ADD0">
+                  <block type="wx_rtc_get_value" id="4qMK1)PaKF]u1vyU:mP5">
+                    <field name="KEY">WX_RTC_MONTH</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="}9)j_On))6,^NTOx:Yip">
+                    <field name="TEXT">/</field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="wx_rtc_get_value" id="*`*(bDM;ZEa#AjiO|jm6">
+                    <field name="KEY">WX_RTC_YEAR</field>
+                  </block>
+                </value>
+                <value name="ADD3">
+                  <block type="text" id="Q:i{?.V[l-[;J?KqE?nA">
+                    <field name="TEXT">/</field>
+                  </block>
+                </value>
+                <value name="ADD4">
+                  <block type="wx_rtc_get_value" id="9~:6Nk`gsQ,m]LvU@EOO">
+                    <field name="KEY">WX_RTC_DAY</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="wx_print_time_line" id="P_#*TQ;whjpd~mJLgT93">
+                <field name="LINE">1</field>
+                <next>
+                  <block type="controls_if" id=")V{f;w{w;gx@/FM?BEYw">
+                    <value name="IF0">
+                      <block type="wx_get_usb_connected" id="enXRfT=,Ekk#5L{FQB^L"></block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="wx_draw_usb_connect" id="C1COWcD9ix`~!@xY5]`I">
+                        <value name="PX">
+                          <block type="math_number" id="H;Vu9TsmUJk)x1K;#WF!">
+                            <field name="NUM">18</field>
+                          </block>
+                        </value>
+                        <value name="PY">
+                          <block type="math_number" id="-]yX2)f%G%xhaPNKBvN(">
+                            <field name="NUM">56</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="wx_draw_charge_state" id="@ED}urtqJG,b21U?;FsZ">
+                            <value name="PX">
+                              <block type="math_number" id="nrJPLlj[_ke^=MF91c4q">
+                                <field name="NUM">36</field>
+                              </block>
+                            </value>
+                            <value name="PY">
+                              <block type="math_number" id="{Fk:~)#F70p#lUf)%L,7">
+                                <field name="NUM">56</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="controls_if" id=".LMQ9{n@E~lHB=jXN+3?">
+                        <value name="IF0">
+                          <block type="logic_operation" id="nqk{L:BGW|,s(Ijmqn:W">
+                            <field name="OP">AND</field>
+                            <value name="A">
+                              <block type="logic_compare" id="4mPxW50)M-[iA{iWn5wa">
+                                <field name="OP">GT</field>
+                                <value name="A">
+                                  <block type="wx_get_bat_voltage" id="NL7ES;oTt43vw5#[l0ku"></block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="e0U|OF?+r,DJ)D#~4^3=">
+                                    <field name="NUM">3.9</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="logic_compare" id="eB~tdeZqrDco]0WXW8~d">
+                                <field name="OP">LT</field>
+                                <value name="A">
+                                  <block type="wx_get_bat_voltage" id="+?VAXe58mWl:#*HHa40d"></block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="J[r{^:VZ9vU-s=Jf0~wC">
+                                    <field name="NUM">4.4</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="wx_draw_battery_icon" id="D):3E)rEovK]rj8UCxaj">
+                            <field name="LEVEL">150</field>
+                            <value name="PX">
+                              <block type="math_number" id="xaHQVK8qp*.WsD^Adb5S">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <value name="PY">
+                              <block type="math_number" id="*Yskie@kt#)!W36WH[e+">
+                                <field name="NUM">56</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="controls_if" id="`Ig[;.1p@Wu,lg*4{BW_">
+                            <value name="IF0">
+                              <block type="logic_operation" id="TQ9T#c:Z4RgQoi.?M.vZ">
+                                <field name="OP">AND</field>
+                                <value name="A">
+                                  <block type="logic_compare" id="q2R7y}mz:)XX[7/8.fxv">
+                                    <field name="OP">GT</field>
+                                    <value name="A">
+                                      <block type="wx_get_bat_voltage" id="XC4#g,%7Z;Jxos;#(;40"></block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="|bkP71.-aV@JDjou~//E">
+                                        <field name="NUM">3.7</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="logic_compare" id="j}+T]m,SiQ,ZjJLfU)aM">
+                                    <field name="OP">LT</field>
+                                    <value name="A">
+                                      <block type="wx_get_bat_voltage" id="SIpS:!]TTd:);Tu/qQ(S"></block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="RjBHWq:]/EIh.V4eARs_">
+                                        <field name="NUM">3.9</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="wx_draw_battery_icon" id="A04Zbg[DlK:Nr1L)a.7:">
+                                <field name="LEVEL">100</field>
+                                <value name="PX">
+                                  <block type="math_number" id="qXZ||`G/ru_7*v0ChAfl">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="PY">
+                                  <block type="math_number" id=";Kr.=-DVTptKRs4O;#Rw">
+                                    <field name="NUM">56</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="controls_if" id="@Yc^,d}/So[q}PuY/=O6">
+                                <value name="IF0">
+                                  <block type="logic_operation" id="Y?1Qq,Aah3,L!I=w-Y*-">
+                                    <field name="OP">AND</field>
+                                    <value name="A">
+                                      <block type="logic_compare" id="?1`t1_7;1J2TO#%:YNDG">
+                                        <field name="OP">GT</field>
+                                        <value name="A">
+                                          <block type="wx_get_bat_voltage" id="e5fm~{mi[FR=?!pbsg6%"></block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="gYNM~BI6_%^;%(dC^t?y">
+                                            <field name="NUM">3.5</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare" id="71::=d9,InuNlZPOSQ!w">
+                                        <field name="OP">LT</field>
+                                        <value name="A">
+                                          <block type="wx_get_bat_voltage" id=".e^1YisIAP/*I,J=vypc"></block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id=":|31NUBxi6k4QB-a/LTR">
+                                            <field name="NUM">3.7</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="wx_draw_battery_icon" id=")kt4_e+@+dC[SVa4,99h">
+                                    <field name="LEVEL">50</field>
+                                    <value name="PX">
+                                      <block type="math_number" id="_b(5D=C:5X8?i+/A`g0I">
+                                        <field name="NUM">0</field>
+                                      </block>
+                                    </value>
+                                    <value name="PY">
+                                      <block type="math_number" id="^J@q=H}U)xd@1/|gTQG_">
+                                        <field name="NUM">56</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="controls_if" id="w2Hnb6]]O%TJKTbd|_FP">
+                                    <value name="IF0">
+                                      <block type="logic_operation" id="b/|gB@uNZCZH`aGxc7[]">
+                                        <field name="OP">AND</field>
+                                        <value name="A">
+                                          <block type="logic_compare" id="cr]O@D1e9s?@Gg0W};u1">
+                                            <field name="OP">GT</field>
+                                            <value name="A">
+                                              <block type="wx_get_bat_voltage" id="zkU]klWivyAp-Tib(FP?"></block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="d)P(ipD`VNs`O5~OK5dp">
+                                                <field name="NUM">3.2</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_compare" id="vXO?jyx-cFM_K_,V%XKQ">
+                                            <field name="OP">LT</field>
+                                            <value name="A">
+                                              <block type="wx_get_bat_voltage" id="FAe-bw,s+)@L,z7|nF0]"></block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="x?=dAf4((;6Es3qj*~1p">
+                                                <field name="NUM">3.5</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="wx_draw_battery_icon" id="FCYjR=(dgr;DCq:nR^dy">
+                                        <field name="LEVEL">0</field>
+                                        <value name="PX">
+                                          <block type="math_number" id="nE@@01XWwMiW?s.)^M1J">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="PY">
+                                          <block type="math_number" id="vK%|H8*==D*h9{)qR*,?">
+                                            <field name="NUM">56</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="controls_if" id="C]?;%TuF~|93oI5nTQ6_">
+                                        <value name="IF0">
+                                          <block type="wx_btn_read" id="5`q:@:TByrjGrVcNnymJ">
+                                            <field name="BUTTON">11</field>
+                                          </block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="wx_oled_power" id="}(5l#1-8kZf9:jI3nQTX">
+                                            <value name="STATE">
+                                              <block type="io_highlow" id="-!c.pj-{=1):gMhi}JlG">
+                                                <field name="STATE">HIGH</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </statement>
+                                        <next>
+                                          <block type="controls_if" id="zNB(}c=INfQ[gvEJobz6">
+                                            <value name="IF0">
+                                              <block type="wx_btn_read" id="6azc5}(8`(we5GV)LD?H">
+                                                <field name="BUTTON">10</field>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="wx_oled_power" id="ARJJ-d89+-8[C90(|f,(">
+                                                <value name="STATE">
+                                                  <block type="io_highlow" id="r#+.%Y;{uPQPw6NF]%6Q">
+                                                    <field name="STATE">LOW</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="controls_if" id="_CC1pB7G_D)A^C}W1YvH">
+                                                <value name="IF0">
+                                                  <block type="logic_compare" id="%].b#[q}`QFMiGBp}PsY">
+                                                    <field name="OP">EQ</field>
+                                                    <value name="A">
+                                                      <block type="wx_ble_read_text" id="^OiX:lpB/a25u]:*VL{%"></block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="text" id="U;#IR#a6;jbp=UEgP2B9">
+                                                        <field name="TEXT">On</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <statement name="DO0">
+                                                  <block type="wx_oled_power" id="(XR4_3:WGRVY#QH-tOgB">
+                                                    <value name="STATE">
+                                                      <block type="io_highlow" id="Ckp@Au8,/rG?dmig{XNl">
+                                                        <field name="STATE">HIGH</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </statement>
+                                                <next>
+                                                  <block type="controls_if" id="F-yGu2ZAV:/Ta,:ppsKW">
+                                                    <value name="IF0">
+                                                      <block type="logic_compare" id="2=FG4^IM)*h2[*1.c|y3">
+                                                        <field name="OP">EQ</field>
+                                                        <value name="A">
+                                                          <block type="wx_ble_read_text" id="#BAK-]wDPj/yN|:Cw]f8"></block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="text" id="pQLvAvF3~G)^,7+snTEo">
+                                                            <field name="TEXT">Off</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="DO0">
+                                                      <block type="wx_oled_power" id="XHA4#4xX.GFJNA~q)6Hn">
+                                                        <value name="STATE">
+                                                          <block type="io_highlow" id="9MR0J~*O)~4Z38|BoW76">
+                                                            <field name="STATE">LOW</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </statement>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
