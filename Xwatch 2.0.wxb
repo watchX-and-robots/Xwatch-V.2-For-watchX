@@ -61,7 +61,7 @@
                 </value>
                 <value name="ADD2">
                   <block type="wx_rtc_get_value" id="*`*(bDM;ZEa#AjiO|jm6">
-                    <field name="KEY">WX_RTC_YEAR</field>
+                    <field name="KEY">WX_RTC_DAY</field>
                   </block>
                 </value>
                 <value name="ADD3">
@@ -71,7 +71,7 @@
                 </value>
                 <value name="ADD4">
                   <block type="wx_rtc_get_value" id="9~:6Nk`gsQ,m]LvU@EOO">
-                    <field name="KEY">WX_RTC_DAY</field>
+                    <field name="KEY">WX_RTC_YEAR</field>
                   </block>
                 </value>
               </block>
@@ -328,9 +328,9 @@
                                               </block>
                                             </value>
                                             <statement name="DO0">
-                                              <block type="wx_oled_power" id="ARJJ-d89+-8[C90(|f,(">
+                                              <block type="wx_oled_power" id="etVO/8Vz;d:{gqpyd=.t">
                                                 <value name="STATE">
-                                                  <block type="io_highlow" id="r#+.%Y;{uPQPw6NF]%6Q">
+                                                  <block type="io_highlow" id="HL/7]Xb:OOv*5XU[2fqo">
                                                     <field name="STATE">LOW</field>
                                                   </block>
                                                 </value>
