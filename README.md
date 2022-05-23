@@ -2,9 +2,13 @@
 
 # WARNING: Android & IOS Apps Are To Large For GitHub Upload
 Here Will Be A Regularly Updated Download Link:
+
 The App Will Be Fine For Your Phones/Tablets But GitHub Doesn't Support It
+
 This App Will Require You To Sign In - Click On It And Sign In - Choose The Free Plan And Download Per Your Phone/Tablet OS
+
 Link Valid Until: **5:55pm MST - Friday, July 22, 2022**
+
 https://x.thunkable.com/copy/8ae7f48bd1bfc4dea78af8476cccc4ed
 
 # Code Examples
